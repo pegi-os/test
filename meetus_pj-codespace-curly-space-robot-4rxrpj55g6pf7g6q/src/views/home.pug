@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Boom
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        link(rel='stylesheet', href="/public/home.css")
+    body
+        header
+            h1 Boom
+        main
+            div#waitRoom
+                form
+                    p 
+                        | Start video call & messaging
+                        br
+                        | by entering a chat room
+                    input(id="nickname", placeholder="nickname", required, type="text")
+                    input(id="roomName", placeholder="room name", required, type="text")
+                    button Enter Room
+            div#callRoom
+                div#videoCall
+                    div#myStream
+                        h2 You:
+                        video#myVideo(autoplay, playinline, width="400", height="400")
+                        button#audio Mute
+                        button#camera Turn Camera Off
+                        select#cameraSelect
+                    div#peerStream
+                        h2 Opponent:
+                        video#peerVideo(autoplay, playinline, width="400", height="400")
+                div#chatContainer
+                    h2 Chat 💬
+                    ul#messages 
+                    form#chat
+                        input(type="text", placeholder="Type a message")
+                        button Send
+        script(src="/socket.io/socket.io.js") 
+        script(src="/public/js/app.js") 
