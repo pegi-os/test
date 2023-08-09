@@ -4,12 +4,12 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Boom
+        title Meetus
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
         link(rel='stylesheet', href="/public/home.css")
     body
         header
-            h1 Boom
+            h1 Meetus
         main
             div#waitRoom
                 form
@@ -22,15 +22,18 @@ html(lang="en")
                     button Enter Room
             div#callRoom
                 div#videoCall
-                    div#myStream
+                    div#screenStream
                         h2 You:
-                        video#myVideo(autoplay, playinline, width="400", height="400")
+                        video#myScreen(autoplay, playinline, width="400", height="400")
+                        video#myVideo(autoplay, playinline, width = "400", height = "400")
+                        button#screen Turn Screen on
                         button#audio Mute
-                        button#camera Turn Camera Off
-                        select#cameraSelect
+                        button#video Turn Video on
+                        select#cameraSelect 
                     div#peerStream
                         h2 Opponent:
-                        video#peerVideo(autoplay, playinline, width="400", height="400")
+                        video#peerScreen(autoplay, playinline, width="400", height="400")
+                        video#peerVideo(autoplay, playinline, width = "400", height = "400")
                 div#chatContainer
                     h2 Chat 💬
                     ul#messages 

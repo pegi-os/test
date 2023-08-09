@@ -17,10 +17,6 @@ wsServer.on("connection", (socket) => {
   // console.log(socket);
   socket["nickname"] = "Anonymous";
 
-  socket.onAny((event, ...args) => {
-    console.log(`발생한 소켓 이벤트: ${event}`);
-    console.log('인자:', args);
-  });
 
   socket.on("enter_room", (roomName, done) => {
     socket.join(roomName);
@@ -34,6 +30,7 @@ wsServer.on("connection", (socket) => {
 
   socket.on("send_offer", (offer, roomName) => {
     socket.to(roomName).emit("receive_offer", offer);
+
   });
 
   socket.on("send_answer", (answer, roomName) => {
